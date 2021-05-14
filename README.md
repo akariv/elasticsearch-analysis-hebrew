@@ -88,18 +88,16 @@ GET /_hebrew/check-word/בדיקה
 PUT test-hebrew
 {
     "mappings": {
-        "test": {
-            "properties": {
-                "content": {
-                    "type": "text",
-                    "analyzer": "hebrew"
-                }
+        "properties": {
+            "content": {
+                "type": "text",
+                "analyzer": "hebrew"
             }
         }
     }
 }
 
-PUT test-hebrew/test/1
+PUT test-hebrew/_doc/1
 {
     "content": "בדיקות"
 }
@@ -109,6 +107,20 @@ POST test-hebrew/_search
     "query": {
         "match": {
            "content": "בדיקה"
+        }
+    }
+}
+
+# or for multiply fields
+POST test-hebrew/_search
+{
+    "query": {
+        "multi_match": {
+           "query": "בדיקה",
+           "fields": [
+                "*",
+                "content"
+           ]
         }
     }
 }
