@@ -185,7 +185,7 @@ if (project.hasProperty('commercial')) {
 
             version {
                 name = project.version
-                vcsTag = elasticsearch
+                vcsTag = '7.16.1'
             }
         }
     }
