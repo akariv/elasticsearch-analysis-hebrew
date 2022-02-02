@@ -152,7 +152,7 @@ if (project.hasProperty('commercial')) {
         licenseFile rootProject.file('LICENSE')
         noticeFile rootProject.file('NOTICE')
     }
-    thirdPartyAudit.enabled = false
+    //thirdPartyAudit.enabled = false
 
     task copyPackaging(type: Copy, dependsOn: [getHspellDictionary, cleanPackaging]) {
         into 'src/main/packaging'
