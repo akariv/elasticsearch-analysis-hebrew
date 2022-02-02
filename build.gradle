@@ -3,7 +3,7 @@ import com.github.mgk.gradle.*
 
 buildscript {
     ext {
-        elasticsearchVersion = System.getProperty("es.version", "7.10.2")
+        elasticsearchVersion = System.getProperty("es.version", "7.16.1")
     }
     repositories {
         mavenLocal()
