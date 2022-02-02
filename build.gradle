@@ -63,14 +63,14 @@ configurations.all {
 
 task getHspellDictionary(type: Download) {
     src([
-        'https://github.com/synhershko/HebMorph/raw/master/hspell-data-files/hebrew.wgz',
-        'https://github.com/synhershko/HebMorph/raw/master/hspell-data-files/hebrew.wgz.desc',
-        'https://github.com/synhershko/HebMorph/raw/master/hspell-data-files/hebrew.wgz.prefixes',
-        'https://github.com/synhershko/HebMorph/raw/master/hspell-data-files/hebrew.wgz.sizes',
-        'https://github.com/synhershko/HebMorph/raw/master/hspell-data-files/hebrew.wgz.stems',
-        'https://github.com/synhershko/HebMorph/raw/master/hspell-data-files/prefixes.c',
-        'https://github.com/synhershko/HebMorph/raw/master/hspell-data-files/dmask.c',
-        'https://github.com/synhershko/HebMorph/raw/master/hspell-data-files/prefix_h.gz'
+        'https://github.com/pwalsh/HebMorph/raw/master/hspell-data-files/hebrew.wgz',
+        'https://github.com/pwalsh/HebMorph/raw/master/hspell-data-files/hebrew.wgz.desc',
+        'https://github.com/pwalsh/HebMorph/raw/master/hspell-data-files/hebrew.wgz.prefixes',
+        'https://github.com/pwalsh/HebMorph/raw/master/hspell-data-files/hebrew.wgz.sizes',
+        'https://github.com/pwalsh/HebMorph/raw/master/hspell-data-files/hebrew.wgz.stems',
+        'https://github.com/pwalsh/HebMorph/raw/master/hspell-data-files/prefixes.c',
+        'https://github.com/pwalsh/HebMorph/raw/master/hspell-data-files/dmask.c',
+        'https://github.com/pwalsh/HebMorph/raw/master/hspell-data-files/prefix_h.gz'
     ])
     overwrite false
     dest 'hspell-data-files/'
@@ -162,7 +162,7 @@ if (project.hasProperty('commercial')) {
     bundlePlugin.dependsOn copyPackaging
 
     bintray {
-        user    = 'synhershko'
+        user    = 'pwalsh'
         key     = System.getenv('BINTRAY_KEY')
         filesSpec {
             from 'build/distributions/analysis-hebrew-'+ project.version +'.zip'
@@ -176,8 +176,8 @@ if (project.hasProperty('commercial')) {
             licenses = ['AGPL-V3']
             publicDownloadNumbers = true
 
-            vcsUrl = 'https://github.com/synhershko/elasticsearch-analysis-hebrew.git'
-            githubRepo = 'synhershko/elasticsearch-analysis-hebrew'
+            vcsUrl = 'https://github.com/pwalsh/elasticsearch-analysis-hebrew.git'
+            githubRepo = 'pwalsh/elasticsearch-analysis-hebrew'
             githubReleaseNotesFile = 'README.md'
             websiteUrl = 'http://code972.com/hebmorph'
 
