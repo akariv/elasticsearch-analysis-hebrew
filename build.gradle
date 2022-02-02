@@ -142,7 +142,7 @@ if (project.hasProperty('commercial')) {
     }
 
 } else {
-    version = elasticsearch
+    version = '7.16.1'
 
     esplugin {
         name 'analysis-hebrew'
