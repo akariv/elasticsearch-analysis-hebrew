@@ -3,7 +3,7 @@ name: Build with gradle
 on:
   push:
     branches:
-      - main
+      - master
     tags:
       - "*.*.*"
 
