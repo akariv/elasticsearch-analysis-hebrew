@@ -3,7 +3,7 @@ import com.github.mgk.gradle.*
 
 buildscript {
     ext {
-        elasticsearchVersion = System.getProperty("es.version", "7.16.1")
+        elasticsearchVersion = System.getProperty("es.version", "7.17.9")
     }
     repositories {
         mavenLocal()
@@ -15,7 +15,7 @@ buildscript {
 }
 
 plugins {
-    id "de.undercouch.download" version "3.2.0"
+    id "de.undercouch.download" version "5.0.2"
     id "com.jfrog.bintray" version "1.8.4"
     id "com.github.mgk.gradle.s3" version "1.4.0"
 }
@@ -43,18 +43,13 @@ repositories {
 }
 
 dependencies {
-    compile group: 'com.code972.hebmorph', name: 'hebmorph-lucene', version: '6.4.1'
-    compileOnly group: 'org.apache.lucene', name: 'lucene-core', version: '6.4.1'
-    compileOnly group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '6.4.1'
+    compileOnly group: 'org.apache.lucene', name: 'lucene-core', version: '8.10.1'
+    compileOnly group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '8.10.1'
     compileOnly group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.1'
-    compileOnly group: 'org.elasticsearch', name: 'elasticsearch', version: '7.16.1'
-    testCompile group: 'org.elasticsearch.test', name: 'framework', version: '7.16.1'
-    testCompile ('org.apache.lucene:lucene-test-framework:8.7.0') {
-        exclude group: 'org.hamcrest'
-    }
-    testCompile ('junit:junit:4.12') {
-        exclude group: 'org.hamcrest'
-    }
+    compileOnly group: 'org.elasticsearch', name: 'elasticsearch', version: '7.17.9'
+    compileOnly group: 'org.elasticsearch', name: 'elasticsearch-core', version: '7.17.9'
+    compileOnly group: 'org.elasticsearch', name: 'elasticsearch-x-content', version: '7.17.9'
+    testImplementation group: 'org.elasticsearch.test', name: 'framework', version: '7.17.9'
 }
 
 configurations.all {
@@ -76,6 +71,7 @@ task getHspellDictionary(type: Download) {
     ])
     overwrite false
     dest 'hspell-data-files/'
+    acceptAnyCertificate true
 }
 
 task cleanPackaging(type:Delete) {
@@ -142,7 +138,7 @@ if (project.hasProperty('commercial')) {
     }
 
 } else {
-    version = '7.16.1'
+    version = '7.17.9'
 
     esplugin {
         name 'analysis-hebrew'
@@ -185,7 +181,7 @@ if (project.hasProperty('commercial')) {
 
             version {
                 name = project.version
-                vcsTag = '7.16.1'
+                vcsTag = '7.17.9'
             }
         }
     }

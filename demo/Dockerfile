@@ -7,4 +7,5 @@ USER root
 RUN chown elasticsearch:elasticsearch config/elasticsearch.yml
 USER elasticsearch
 WORKDIR /usr/share/elasticsearch
-RUN ./bin/elasticsearch-plugin install https://bintray.com/synhershko/elasticsearch-analysis-hebrew/download_file?file_path=elasticsearch-analysis-hebrew-$ES_VERSION.zip
+COPY elasticsearch-analysis-hebrew.zip /usr/share/elasticsearch/
+RUN yes | ./bin/elasticsearch-plugin install file:///usr/share/elasticsearch/elasticsearch-analysis-hebrew.zip

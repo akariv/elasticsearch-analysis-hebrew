@@ -9,3 +9,7 @@ packaging/
 gradle.properties
 *.iml
 *.sha1
+bin/
+demo/
+.DS_Store
+.vscode/

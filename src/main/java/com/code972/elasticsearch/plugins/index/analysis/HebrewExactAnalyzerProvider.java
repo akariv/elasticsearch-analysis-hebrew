@@ -35,7 +35,6 @@ public class HebrewExactAnalyzerProvider extends AbstractIndexAnalyzerProvider<H
                                        final DictHebMorph dict) {
         super(indexSettings, name, settings);
         analyzer = new HebrewExactAnalyzer(dict);
-        analyzer.setVersion(this.version);
     }
 
     @Override
